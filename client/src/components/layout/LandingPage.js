@@ -11,13 +11,13 @@ const LandingPage = (props) => {
       </div>
       <div className="tiles">
         <div className="tile">
-          tile one
+          Find climbing destinations!
         </div>
         <div className="tile">
-          tile two
+          Connect with Other Climbers!
         </div>
         <div className="tile">
-          tile three
+          Track Your progress!
         </div>
       </div>
     </div>
