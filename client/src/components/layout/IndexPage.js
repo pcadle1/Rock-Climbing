@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import MapContainer from './MapContainer'
 import RouteTile from './RouteTile'
 
 const IndexPage = (props) => {
@@ -41,6 +42,7 @@ const IndexPage = (props) => {
 
   return (
     <>
+    <MapContainer routes={routes}/>
     <h1 className='index-header'>Find Routes</h1>
     <form onSubmit={handleSubmit}>
       <label htmlFor="zipcode">Zipcode</label>
