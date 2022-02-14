@@ -42,7 +42,7 @@ const IndexPage = (props) => {
 
   return (
     <>
-    <MapContainer routes={routes}/>
+    <MapContainer routes={routes} location={location.zipcode}/>
     <h1 className='index-header'>Find Routes</h1>
     <form onSubmit={handleSubmit}>
       <label htmlFor="zipcode">Zipcode</label>
