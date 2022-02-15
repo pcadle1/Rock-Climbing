@@ -6,17 +6,23 @@ class RouteSeeder {
       {
         name: 'Hobbit Hole',
         grade: 'V3',
-        type: 'Boulder'
+        type: 'Boulder',
+        lat: 42.8806425,
+        lng:-71.3272856
       },
       {
         name: 'Espresso',
         grade: '5.10d',
-        type: 'Sport'
+        type: 'Sport',
+        lat: 42.8806425,
+        lng:-71.3272856
       },
       {
         name: 'Whitney Gilman Ridge',
         grade: '5.7',
-        type: 'Trad'
+        type: 'Trad',
+        lat: 42.8806425,
+        lng:-71.3272856
       }
     ]
     for (const route of routeData){

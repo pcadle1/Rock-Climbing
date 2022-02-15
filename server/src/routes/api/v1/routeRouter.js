@@ -2,6 +2,9 @@ import express from 'express'
 import got from 'got'
 import RouteSerializer from '../../../serializers/RouteSerializer.js'
 import GeoCoder from '../../../services/Geocoder.js'
+import Route from '../../../models/Route.js'
+import User from '../../../models/User.js'
+
 const routeRouter = new express.Router()
 
 routeRouter.get('/:zip&:radius', async (req, res) => {
@@ -13,6 +16,29 @@ routeRouter.get('/:zip&:radius', async (req, res) => {
     const serializedRoutes = await RouteSerializer.getSummary(body)
     return res.status(200).json({ routes: serializedRoutes })
   }catch(error){
+    return res.status(500).json({ error })
+  }
+})
+
+routeRouter.post('/', async (req, res) => {
+  try{
+    const { name, yds, lat, lng, meta_parent_sector } = req.body
+    const user = await User.query().findById(req.user.id)
+    const existingRoute = await Route.query().findOne({name: name})
+    let insertion
+    if(!existingRoute){
+      insertion = await user.$relatedQuery('routes').insertAndFetch({
+        name: name,
+        grade: yds,
+        type: Object.keys(req.body.type)[0],
+        lat: lat,
+        lng: lng,
+        sector: meta_parent_sector
+      })
+    }
+    return res.status(201).json({ route: insertion})
+  }catch(error){
+    console.log(error)
     return res.status(500).json({ error })
   }
 })
