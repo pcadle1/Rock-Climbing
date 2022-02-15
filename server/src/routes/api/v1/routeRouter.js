@@ -1,5 +1,4 @@
 import express from 'express'
-import Route from '../../../models/Route.js'
 import got from 'got'
 import RouteSerializer from '../../../serializers/RouteSerializer.js'
 import GeoCoder from '../../../services/geocoder.js'

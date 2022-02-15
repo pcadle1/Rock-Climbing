@@ -59,7 +59,7 @@ const IndexPage = (props) => {
     <form className = "route-submit-form" onSubmit={handleSubmit}>
       <label htmlFor="zipcode">Zipcode</label>
       <input type="text" name="zipcode" id="zipcode" onChange={handleInputChange}></input>
-      <label htmlFor="radius">Radius</label>
+      <label htmlFor="radius">Radius(km)</label>
       <input type="text" name="radius" id="radius" onChange={handleInputChange}></input>
       <input className="button" type="submit"></input>
     </form>
