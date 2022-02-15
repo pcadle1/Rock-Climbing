@@ -1,11 +1,10 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const RouteTile = (props) => {
   const { route } = props
   const type = Object.keys(route.type)[0]
-
   const saveRoute = async () => {
     try{
       const response = await fetch(`/api/v1/routes`, {
@@ -22,14 +21,17 @@ const RouteTile = (props) => {
         }
         throw new Error(`${response.status} ${response.statusText}`)
       }
+      saveMessage="Saved to your list"
       const body = await response.json()
     }catch(error){
       console.log(`Error in fetch: ${error}`)
     }
   }
+
   return (
     <div className='route-tile'>
-      <FontAwesomeIcon onClick={saveRoute}icon={faPlus} />
+      <button onClick={saveRoute} className="button">Save Route</button>
+      <FontAwesomeIcon icon={faCheck} className="checkmark"/>
       <h1>{route.name}</h1>
       <p>Located At: {route.meta_parent_sector}</p>
       <p>Grade: {route.yds}</p>
