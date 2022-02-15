@@ -1,7 +1,7 @@
 import express from 'express'
 import got from 'got'
 import RouteSerializer from '../../../serializers/RouteSerializer.js'
-import GeoCoder from '../../../services/geocoder.js'
+import GeoCoder from '../../../services/Geocoder.js'
 const routeRouter = new express.Router()
 
 routeRouter.get('/:zip&:radius', async (req, res) => {
