@@ -1,0 +1,47 @@
+.routes{
+  overflow: auto;
+  height: 600px;
+
+}
+
+.route-tile{
+  margin: 1em;
+  padding-left: 1em;
+  background-color: white;
+  border: 2px solid white;
+  width: 90%;
+  border-radius: 0.5em;
+  box-shadow: rgb(128, 124, 124) 0px 4px 10px;
+  h1{
+    text-align: center;
+    color: black;
+    margin: 0;
+  }
+}
+
+.index-header{
+  margin-top: 0.5em;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.map-div{
+  width: 100%;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+.route-submit-form{
+  width: 30%;
+  margin-left: 1em;
+  input{
+    border-radius: 0.5em;
+  }
+  label{
+    color: white;
+    font-weight: bold;
+  }
+}
+
+

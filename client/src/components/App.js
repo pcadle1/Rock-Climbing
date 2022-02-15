@@ -8,7 +8,8 @@ import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
 import LandingPage from "./layout/LandingPage";
-
+import IndexPage from "./layout/IndexPage";
+import AuthenticatedRoute from './authentication/AuthenticatedRoute'
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const fetchCurrentUser = async () => {
@@ -31,6 +32,7 @@ const App = (props) => {
         <Route exact path="/">
           <LandingPage />
         </Route>
+        <Route exact path='/routes' component={IndexPage}/>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>

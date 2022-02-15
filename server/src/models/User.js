@@ -27,12 +27,38 @@ class User extends uniqueFunc(Model) {
     return {
       type: "object",
       required: ["email"],
-
       properties: {
         email: { type: "string", format: "email" },
         cryptedPassword: { type: "string" },
       },
     };
+  }
+
+  static get relationMappings(){
+    const Route = require('./Route.js')
+    const ClimberRoute = require('./ClimberRoute.js')
+    return {
+      routes: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Route,
+        join:{
+          from: 'users.id',
+          through: {
+            from: 'climberRoutes.climberId',
+            to: 'climberRoutes.routeId'
+          },
+          to: 'routes.id'
+        }
+      },
+      climberRoute: {
+        relation: Model.HasManyRelation,
+        modelClass: ClimberRoute,
+        join: {
+          from: 'users.id',
+          to: 'climberRoutes.climberId'
+        }
+      }
+    }
   }
 
   $formatJson(json) {

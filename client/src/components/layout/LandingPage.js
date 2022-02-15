@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const LandingPage = (props) => {
   return (
     <div className="landing-page">
-      <h1>Find Routes, Partners, and Share Your Adventures</h1>
+      <h1 className='landing-header'>Find Routes, Partners, and Share Your Adventures</h1>
       <div className="start-button">
         <Link to="/users/new" className="start">
           Sign Up
@@ -11,7 +11,7 @@ const LandingPage = (props) => {
       </div>
       <div className="tiles">
         <div className="tile">
-          Find climbing destinations!
+          <Link to="/routes">Find Climbing Destinations!</Link>
         </div>
         <div className="tile">
           Connect with Other Climbers!
