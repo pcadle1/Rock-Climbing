@@ -1,6 +1,7 @@
 .routes{
   overflow: auto;
   height: 600px;
+
 }
 
 .route-tile{
@@ -8,7 +9,7 @@
   background-color: white;
   text-align: center;
   border: 2px solid white;
-  width: 40%;
+  width: 90%;
   border-radius: 0.5em;
   box-shadow: rgb(128, 124, 124) 0px 4px 10px;
   h1{
@@ -18,7 +19,27 @@
 }
 
 .index-header{
-  margin: 0;
+  margin-top: 0.5em;
   color: white;
+  font-weight: bold;
   text-align: center;
 }
+
+.map-div{
+  width: 100%;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+.route-submit-form{
+  width: 30%;
+  margin-left: 1em;
+  input{
+    border-radius: 0.5em;
+  }
+  label{
+    color: white;
+  }
+}
+
+

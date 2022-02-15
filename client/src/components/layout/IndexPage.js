@@ -8,7 +8,11 @@ const IndexPage = (props) => {
     zipcode: '',
     radius: ''
   })
-  
+  const [selectedArea, setSelectedArea] = useState()
+  const handleSelect = (route) => {
+    setSelectedArea({lat: route.lat, lng: route.lng})
+  }
+
   const getAllRoutes = async (location) => {
     try{
       const response = await fetch(`/api/v1/routes/${location.zipcode}&${location.radius}`)
@@ -36,24 +40,38 @@ const IndexPage = (props) => {
       [event.currentTarget.name]: event.currentTarget.value})
   }
 
-  const routesList = routes.map((route) => {
-    return <RouteTile route={route}/>
-  })
+  let routesList
+  if(selectedArea){
+    const selectedAreaRoutes = routes.filter((route) => route.lat === selectedArea.lat)
+    routesList = selectedAreaRoutes.map((route, idx) => {
+      return <RouteTile key ={idx} route={route} />
+    })
+  }else{
+    routesList = routes.map((route, idx) => {
+      return <RouteTile key={idx} route={route}/>
+    })
+
+  }
 
   return (
     <>
-    <MapContainer routes={routes} location={location.zipcode}/>
     <h1 className='index-header'>Find Routes</h1>
-    <form onSubmit={handleSubmit}>
+    <form className = "route-submit-form" onSubmit={handleSubmit}>
       <label htmlFor="zipcode">Zipcode</label>
       <input type="text" name="zipcode" id="zipcode" onChange={handleInputChange}></input>
       <label htmlFor="radius">Radius</label>
       <input type="text" name="radius" id="radius" onChange={handleInputChange}></input>
-      <input type="submit"></input>
+      <input className="button" type="submit"></input>
     </form>
-      <div className='routes'>
+    <div className="grid-x grid-margin-x map-info">
+      <div className="cell small-6 map-div">
+        <MapContainer handleSelect={handleSelect} selectedArea={selectedArea} routes={routes} location={location.zipcode}/>
+      </div>
+      <div className='cell small-6 routes'>
         {routesList}
       </div>
+
+    </div>
     </>
   )
 }

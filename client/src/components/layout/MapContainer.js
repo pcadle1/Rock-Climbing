@@ -2,38 +2,41 @@ import React, { useState } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 
 const MapContainer = (props) => {
-  const [selected, setSelected] = useState()
 
   const mapDimensions = {
-    height: '50vh',
-    width: '50%'
+    height: '60vh',
+    width: '100%'
   }
 
-  let defaultCenter = {
-    lat: 42.364506, lng: 	-71.038887
-  }
-
-  const handleSelect = (route) => {
-    setSelected({lat: route.lat, lng: route.lng})
-  }
-
-  const markers = props.routes.map((route) => {
+  const markers = props.routes.map((route, idx) => {
     return <Marker 
-            position={{lat: route.lat ,lng: route.lng}}
-            onClick={() => handleSelect(route)}
-          ></Marker>
+    key={idx}
+    position={{lat: route.lat ,lng: route.lng}}
+    onClick={() => props.handleSelect(route)}
+    ></Marker>
   })
-
+  
   let info
-  if(selected){
-    defaultCenter=selected
+  let defaultCenter
+
+  if(props.routes.length > 0){
+    defaultCenter = {lat: props.routes[0].lat, lng: props.routes[0].lng}
+  }else{
+    defaultCenter = {
+      lat: 42.364506, lng: 	-71.038887
+    }
+  }
+
+  if(props.selectedArea){
+    defaultCenter=props.selectedArea
     info = <InfoWindow
-              position={selected}
+              position={props.selectedArea}
               onCloseClick={() => setSelected()}
               >
               <div>hey there</div>
             </InfoWindow>
   }
+
   return(
     <>
     <LoadScript googleMapsApiKey="AIzaSyDqSAAXtxlZ19w9sGdlSkuClTSvkG8a4yM">
