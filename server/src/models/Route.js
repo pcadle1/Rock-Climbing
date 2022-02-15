@@ -12,7 +12,10 @@ class Route extends Model {
       properties: {
         name: {type: 'string'},
         grade: {type: 'string'},
-        type: {type: 'string'}
+        type: {type: 'string'},
+        lat: {type: ['string', 'number']},
+        lng: {type: ['string', 'number']},
+        sector: {type: 'string'}
       }
     }
   }
