@@ -18,6 +18,7 @@ const LandingPage = (props) => {
         </div>
         <div className="tile">
           Track Your progress!
+          <Link to="/profile">View Your Profile</Link>
         </div>
       </div>
     </div>
