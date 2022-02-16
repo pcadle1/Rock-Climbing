@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react'
 import Dropzone from './Dropzone'
 import gradeData from '../../../gradeData'
+import { Redirect } from 'react-router'
 const NewProfileForm = (props) => {
+
   const [formInput, setFormInput] = useState({
     name: '',
     age: '',
@@ -11,6 +13,9 @@ const NewProfileForm = (props) => {
     grade: '',
     profilePhoto: {}
   })
+  const [profileDetails, setProfileDetails] = useState({})
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+
   const onDrop = useCallback(acceptedFiles => {
     setFormInput({...formInput, profilePhoto: Object.assign(acceptedFiles[0], {preview: URL.createObjectURL(acceptedFiles[0])})})
   }, [])
@@ -28,7 +33,7 @@ const NewProfileForm = (props) => {
     newBody.append('name', formInput.name)
     newBody.append('age', formInput.age)
     newBody.append('location', formInput.location)
-    newBody.append('blurb', formInput.blurb)
+    newBody.append('details', formInput.blurb)
     newBody.append('style', formInput.style)
     newBody.append('grade', formInput.grade)
     newBody.append('profilePhoto', formInput.profilePhoto)
@@ -46,6 +51,9 @@ const NewProfileForm = (props) => {
         }
         throw new Error(`${response.status} ${response.statusText}`)
       }
+      const body = await response.json()
+      props.setCurrentUser(body.userInfo)
+      setShouldRedirect(true)
     }catch(error){
       console.log(`Error in fetch: ${error}`)
     }
@@ -56,6 +64,14 @@ const NewProfileForm = (props) => {
   const gradeOptions = allGrades.map((grade) => {
     return <option value={grade} key={grade}>{`${grade}`}</option>
   })
+
+  if(shouldRedirect){
+    return <Redirect 
+            to={{
+              pathname: "/profile",
+              state: { profileDetails }
+            }}/>
+  }
 
   return (
     <div className="profile-form">

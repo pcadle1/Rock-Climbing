@@ -1,6 +1,6 @@
 import express from "express";
-import passport from "passport";
 import { User } from "../../../models/index.js";
+import uploadImage from '../../../services/uploadImage.js'
 
 const usersRouter = new express.Router();
 
@@ -17,12 +17,14 @@ usersRouter.post("/", async (req, res) => {
   }
 });
 
-usersRouter.post('/profile', async (req, res) => {
-  // const { name, age, location, blurb, style, grade } = req.body
-  // const photoUrl = req.body.profilePhoto.preview
-  console.log(req.body)
+usersRouter.post('/profile', uploadImage.single('profilePhoto'), async (req, res) => {
   try{
-    // await User.query().findById(req.user.id).patch({name: })
+    const { body } = req
+    const newBody = {...body}
+    newBody.image = req.file.location
+    const user = await User.query().findById(req.user.id)
+    const patch = await user.$query().patchAndFetch(newBody)
+    return res.status(201).json({ userInfo: patch})
   }catch(error){
     console.log(error)
     return res.status(500).json({error })

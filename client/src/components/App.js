@@ -32,14 +32,16 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
+        <Route exact path="/" component={LandingPage} />
         <Route exact path='/routes' component={IndexPage}/>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
-        <Route exact path="/profile" component={Profile} user={currentUser}/>
-        <Route exact path="/profile/new" component={NewProfileForm} user={currentUser}/>
+        <Route exact path="/profile">
+            <Profile user={currentUser}/>
+        </Route>
+        <Route exact path="/profile/new">
+            <NewProfileForm user={currentUser} setCurrentUser={setCurrentUser}/>
+        </Route>
       </Switch>
     </Router>
   );

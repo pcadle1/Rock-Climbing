@@ -4,6 +4,9 @@ import ProfileRoute from './ProfileRoute'
 const Profile = (props) => {
   const [userRoutes, setUserRoutes] = useState([])
   const [routeList, setRouteList] = useState([])
+
+  const { name, age, grade, details, location, image, style } = props.user
+
   const getUserRoutes = async () => {
     try{
       const response = await fetch(`/api/v1/routes`)
@@ -38,7 +41,15 @@ const Profile = (props) => {
 
   return (
     <>
-      <h1>my profile goes here</h1>
+      <div>
+        <img className="profile-pic" src={image} alt="profile-picture"></img>
+        <p>{name}</p>
+        <p>{age}</p>
+        <p>{grade}</p>
+        <p>{style}</p>
+        <p>{location}</p>
+        <p>{details}</p>
+      </div>
       <h2>My saved routes:</h2>
       <button className="button" onClick={showCompleted}>View Completed Routes</button>
       <button className="button" onClick={showSaved}>Saved Routes</button>
