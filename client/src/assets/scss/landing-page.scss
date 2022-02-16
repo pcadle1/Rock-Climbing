@@ -1,5 +1,5 @@
 body { 
-  background: url(../images/mountains-g63711a8f3_1920.jpg) no-repeat center center fixed; 
+  background: url(../images/mountains-g2289e6fc6_1920.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,11 +7,11 @@ body {
 }
 
 .landing-header{
-  color: white;
-  font-weight: 500;
+  font-weight: 800;
   font-size: 3em;
   text-align: center;
   margin-top: 3em;
+
 }
 
 .start-button{
@@ -23,14 +23,17 @@ body {
   margin-top: 2em;
   width: 10em;
   height: 2.5em;
-  background-color: #ffb20a;
+  background-color: #1e4a71;
   color: white;
   margin-top: 2em;
+  a:hover{
+    color: white;
+  }
 }
 
 .start-button:hover{
   cursor: pointer;
-  background-color: #db9f22;
+  background-color: #4981a9;
   text-decoration: underline;
 }
 

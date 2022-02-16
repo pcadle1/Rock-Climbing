@@ -11,6 +11,8 @@ import LandingPage from "./layout/LandingPage";
 import IndexPage from "./layout/IndexPage";
 import AuthenticatedRoute from './authentication/AuthenticatedRoute'
 import Profile from "./layout/Profile";
+import NewProfileForm from "./layout/NewProfileForm";
+
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
   const fetchCurrentUser = async () => {
@@ -36,7 +38,8 @@ const App = (props) => {
         <Route exact path='/routes' component={IndexPage}/>
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
-        <AuthenticatedRoute exact path="/profile" component={Profile} user={currentUser}/>
+        <Route exact path="/profile" component={Profile} user={currentUser}/>
+        <Route exact path="/profile/new" component={NewProfileForm} user={currentUser}/>
       </Switch>
     </Router>
   );

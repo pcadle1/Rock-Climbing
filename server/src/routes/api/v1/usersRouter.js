@@ -17,4 +17,16 @@ usersRouter.post("/", async (req, res) => {
   }
 });
 
+usersRouter.post('/profile', async (req, res) => {
+  // const { name, age, location, blurb, style, grade } = req.body
+  // const photoUrl = req.body.profilePhoto.preview
+  console.log(req.body)
+  try{
+    // await User.query().findById(req.user.id).patch({name: })
+  }catch(error){
+    console.log(error)
+    return res.status(500).json({error })
+  }
+})
+
 export default usersRouter;
