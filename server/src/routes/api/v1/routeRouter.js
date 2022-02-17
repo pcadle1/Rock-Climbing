@@ -20,6 +20,22 @@ routeRouter.get('/:zip&:radius', async (req, res) => {
   }
 })
 
+routeRouter.get('/', async (req, res) => {
+  try{
+    const user = await User.query().findById(req.user.id)
+    let  userRoutes = await user.$relatedQuery('routes')
+    userRoutes = await Promise.all(userRoutes.map(async (route) => {
+      const ticks = await route.$relatedQuery('climberRoute')
+      route.ticks = ticks[0].ticks
+      return route
+    }))
+    return res.status(200).json({ routes: userRoutes })
+  }catch(error){
+    console.log(error)
+    return res.status(500).json({ error })
+  }
+})
+
 routeRouter.post('/', async (req, res) => {
   try{
     const { name, yds, lat, lng, meta_parent_sector } = req.body

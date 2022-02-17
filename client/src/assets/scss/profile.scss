@@ -1,0 +1,116 @@
+.dropzone{
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 0.5em;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  width: 50%;
+  color: #bdbdbd;
+  outline: none;
+  transition: border .24s ease-in-out;
+};
+
+.profile-photo{
+  height: 100px;
+  width: 100px;
+  border: none;
+}
+
+.profile-form{
+  position: relative;
+  background-color: white;
+  margin: 2em 5em;
+  padding-bottom: 3em;
+  border-radius: 0.5em;
+  h1{
+    text-align: center;
+  }
+  label{
+    margin-left: 1em;
+    margin-bottom: 0.2em;
+    margin-top: 1.3em;
+    text-align: center;
+  }
+  .button{
+    margin-left: 1em;
+    border-radius: 0.5em;
+    position: absolute;
+    bottom: 0.5em;
+    right: 1em;
+  }
+}
+
+.profile-form-input{
+  width: 40%;
+  margin-left: 1em;
+  margin-top: 2em;
+  margin: 0 auto;
+  border-radius: 0.5em;
+
+}
+
+.options{
+  width: 40%;
+  border-radius: 0.5em;
+  display: block;
+  margin: 0 auto;
+}
+
+.profile-pic{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 2px solid #4981a9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.profile-details{
+  background-color: white;
+  width: 50%;
+  border-radius: 0.5em;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  .name{
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 2em;
+    font-weight: 700;
+  }
+  p{
+    margin-left: 2em;
+  }
+}
+hr{
+  border: 2px solid #aab8c2;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.profile-links{
+  display: flex;
+  justify-content: space-evenly;
+  .button{
+    background-color: #fafafa;
+    color: #1e4a71;
+    font-weight: bold;
+    border-radius: 0.5em;
+  }
+  .button:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #bdc4cd;
+  }
+  .button:focus{
+    background-color: #bdc4cd;
+  }
+}
