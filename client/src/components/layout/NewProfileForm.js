@@ -36,7 +36,7 @@ const NewProfileForm = (props) => {
     newBody.append('details', formInput.blurb)
     newBody.append('style', formInput.style)
     newBody.append('grade', formInput.grade)
-    newBody.append('profilePhoto', formInput.profilePhoto)
+    newBody.append('image', formInput.profilePhoto)
     try{
       const response = await fetch('/api/v1/users/profile', {
         method: 'POST',

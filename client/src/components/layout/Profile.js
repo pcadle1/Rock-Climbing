@@ -13,7 +13,7 @@ const Profile = (props) => {
 
   const getUserRoutes = async () => {
     try{
-      const response = await fetch(`/api/v1/routes`)
+      const response = await fetch(`/api/v1/routes/user`)
       if(!response.ok){
         throw new Error(`${response.status} ${response.statusText}`)
       }

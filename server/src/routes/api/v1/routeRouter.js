@@ -4,7 +4,7 @@ import RouteSerializer from '../../../serializers/RouteSerializer.js'
 import GeoCoder from '../../../services/Geocoder.js'
 import Route from '../../../models/Route.js'
 import User from '../../../models/User.js'
-
+import uploadImage from '../../../services/uploadImage.js'
 const routeRouter = new express.Router()
 
 routeRouter.get('/:zip&:radius', async (req, res) => {
@@ -20,7 +20,7 @@ routeRouter.get('/:zip&:radius', async (req, res) => {
   }
 })
 
-routeRouter.get('/', async (req, res) => {
+routeRouter.get('/user', async (req, res) => {
   try{
     const user = await User.query().findById(req.user.id)
     let  userRoutes = await user.$relatedQuery('routes')
@@ -56,6 +56,20 @@ routeRouter.post('/', async (req, res) => {
   }catch(error){
     console.log(error)
     return res.status(500).json({ error })
+  }
+})
+
+routeRouter.patch('/', uploadImage.single('image'), async (req, res) => {
+  try{
+    const { body } = req
+    const newBody = {...body}
+    newBody.image = req.file.location
+    const user = await User.query().findById(req.user.id)
+    const patch = await user.$query().patchAndFetch(newBody)
+    return res.status(201).json({ userInfo: patch})
+  }catch(error){
+    console.log(error)
+    return res.status(500).json({error })
   }
 })
 
