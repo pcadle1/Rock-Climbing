@@ -65,4 +65,52 @@
 .profile-pic{
   height: 200px;
   width: 200px;
+  border-radius: 50%;
+  border: 2px solid #4981a9;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.profile-details{
+  background-color: white;
+  width: 50%;
+  border-radius: 0.5em;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  .name{
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 2em;
+    font-weight: 700;
+  }
+  p{
+    margin-left: 2em;
+  }
+}
+hr{
+  border: 2px solid #aab8c2;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.profile-links{
+  display: flex;
+  justify-content: space-evenly;
+  .button{
+    background-color: #fafafa;
+    color: #1e4a71;
+    font-weight: bold;
+    border-radius: 0.5em;
+  }
+  .button:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #bdc4cd;
+  }
+  .button:focus{
+    background-color: #bdc4cd;
+  }
 }

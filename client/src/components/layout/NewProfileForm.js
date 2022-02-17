@@ -60,7 +60,6 @@ const NewProfileForm = (props) => {
   }
 
   const allGrades = gradeData.boulder.concat(gradeData.sport)
-  
   const gradeOptions = allGrades.map((grade) => {
     return <option value={grade} key={grade}>{`${grade}`}</option>
   })
