@@ -21,7 +21,6 @@ const RouteTile = (props) => {
         }
         throw new Error(`${response.status} ${response.statusText}`)
       }
-      saveMessage="Saved to your list"
       const body = await response.json()
     }catch(error){
       console.log(`Error in fetch: ${error}`)
