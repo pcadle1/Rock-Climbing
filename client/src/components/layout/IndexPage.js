@@ -25,9 +25,13 @@ const IndexPage = (props) => {
       console.log(`Error in fetch: ${error}`)
     }
   }
-
+  
   useEffect(() => {
-    getAllRoutes()
+    if(props.location.state){
+      getAllRoutes(props.location.state.searchLocation)
+    }else{
+      getAllRoutes(location)
+    }
   }, [])
 
   const handleSubmit = (event) => {
