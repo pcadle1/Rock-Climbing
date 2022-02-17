@@ -3,6 +3,7 @@ import MapContainer from './MapContainer'
 import RouteTile from './RouteTile'
 
 const IndexPage = (props) => {
+debugger
   const [routes, setRoutes] = useState([])
   const [location, setLocation] = useState({
     zipcode: '',
@@ -25,9 +26,13 @@ const IndexPage = (props) => {
       console.log(`Error in fetch: ${error}`)
     }
   }
-
+  
   useEffect(() => {
-    getAllRoutes()
+    if(props.location.state){
+      getAllRoutes(props.location.state.searchLocation)
+    }else{
+      getAllRoutes(location)
+    }
   }, [])
 
   const handleSubmit = (event) => {
