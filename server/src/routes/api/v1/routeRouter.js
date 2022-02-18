@@ -53,6 +53,8 @@ routeRouter.post('/', async (req, res) => {
         lng: lng,
         sector: meta_parent_sector
       })
+    }else{
+      await user.$relatedQuery('routes').relate(existingRoute)
     }
     return res.status(201).json({ route: insertion})
   }catch(error){
