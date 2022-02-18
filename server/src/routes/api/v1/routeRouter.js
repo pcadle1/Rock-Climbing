@@ -27,7 +27,7 @@ routeRouter.get('/user', async (req, res) => {
     const user = await User.query().findById(req.user.id)
     let  userRoutes = await user.$relatedQuery('routes')
     userRoutes = await Promise.all(userRoutes.map(async (route) => {
-      const routeDetails = await route.$relatedQuery('climberRoute')
+      const routeDetails = await route.$relatedQuery('climberRoutes')
       route.details = ClimberRouteSerializer.getDetails(routeDetails[0])
       return route
     }))
