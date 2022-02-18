@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus } from '@fortawesome/free-solid-svg-icons'
 import EditRoute from './EditRoute'
+import DeleteRoute from './DeleteRoute'
 const ProfileRoute = (props) => {
   const { route } = props
   let img = ''
   if(route.details.image !== null){
     img = <img className="review-image" src={route.details.image}/>
   }
+
   return (
     <div className='route-tile'>
-      <FontAwesomeIcon icon={faMinus} className="delete-route"/>
+      <DeleteRoute route={route} setRouteList={props.setRouteList} routes={props.routes}/>
       <h1>{route.name}</h1>
       <div className="tile-container">
 
