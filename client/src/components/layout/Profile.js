@@ -40,7 +40,7 @@ const Profile = (props) => {
     setRouteList(userRoutes)
   }
   userRouteList = routeList.map((route, idx) => {
-    return <ProfileRoute key={idx} route={route} />
+    return <ProfileRoute key={idx} route={route} setRouteList={setRouteList} routes={routeList} />
   })
 
     return (

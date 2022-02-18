@@ -1,6 +1,6 @@
 const Model = require('./Model.js')
 
-class climberRoute extends Model {
+class ClimberRoute extends Model {
   static get tableName() {
     return 'climberRoutes'
   }
@@ -12,7 +12,10 @@ class climberRoute extends Model {
       properties: {
         climberId: {type: 'string'},
         routeId: {type: 'string'},
-        ticks: {type: ['string', 'integer']}
+        ticks: {type: ['string', 'integer']},
+        rating: {type: ['string', 'integer']},
+        review: {type: 'string'},
+        image: {type: 'string'}
       }
     }
   }
@@ -42,4 +45,4 @@ class climberRoute extends Model {
   }
 }
 
-module.exports = climberRoute
+module.exports = ClimberRoute

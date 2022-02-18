@@ -11,13 +11,13 @@ const NewProfileForm = (props) => {
     blurb: '',
     style: '',
     grade: '',
-    profilePhoto: {}
+    image: {}
   })
   const [profileDetails, setProfileDetails] = useState({})
   const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const onDrop = useCallback(acceptedFiles => {
-    setFormInput({...formInput, profilePhoto: Object.assign(acceptedFiles[0], {preview: URL.createObjectURL(acceptedFiles[0])})})
+    setFormInput({...formInput, image: Object.assign(acceptedFiles[0], {preview: URL.createObjectURL(acceptedFiles[0])})})
   }, [])
 
   const handleInputChange = (event) => {
@@ -36,7 +36,7 @@ const NewProfileForm = (props) => {
     newBody.append('details', formInput.blurb)
     newBody.append('style', formInput.style)
     newBody.append('grade', formInput.grade)
-    newBody.append('image', formInput.profilePhoto)
+    newBody.append('image', formInput.image)
     try{
       const response = await fetch('/api/v1/users/profile', {
         method: 'POST',
@@ -75,7 +75,7 @@ const NewProfileForm = (props) => {
   return (
     <div className="profile-form">
       <h1>Create Your Profile</h1>
-      <Dropzone onDrop={onDrop} profilePhoto={formInput.profilePhoto}/>
+      <Dropzone onDrop={onDrop} image={formInput.image}/>
       <form onSubmit={submitForm}>
         <label htmlFor="name">Name: </label>
         <input className="profile-form-input" type="text" name="name" value={formInput.name} onChange={handleInputChange}></input>
