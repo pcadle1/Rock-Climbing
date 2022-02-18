@@ -57,12 +57,13 @@ const EditRoute = (props) => {
     return(
       <>
         <Dropzone onDrop={onDrop} image={formInput.image}/>
-        <form onSubmit={save}>
+        <form className="edit-form" onSubmit={save}>
           <label htmlFor="review">Review/notes</label>
-          <input type="text" name="review" onChange={handleInputChange} value={formInput.review}></input>
+          <input className="form-input" type="text" name="review" onChange={handleInputChange} value={formInput.review}></input>
           <label htmlFor="rating">
           Rating:
             <select
+              className="form-input"
               id="rating"
               name="rating"
               onChange={handleInputChange}
@@ -75,7 +76,7 @@ const EditRoute = (props) => {
                 <option value="5">5</option>
             </select>
           </label>
-          <input type="submit"></input>
+          <input type="submit" className="button"></input>
         </form>
         <button className="button" onClick={handleClick}>back</button>
       </>
