@@ -23,7 +23,7 @@ exports.up = async (knex) => {
       table.string("details")
       table.string("grade")
       table.string("style")
-      table.string("image")
+      table.string("image").defaultTo('https://rock-climbing-development.s3.amazonaws.com/blank-profile-picture-gdcb4b2693_1280.png')
       table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
       table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
     });

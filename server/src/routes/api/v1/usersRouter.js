@@ -17,11 +17,11 @@ usersRouter.post("/", async (req, res) => {
   }
 });
 
-usersRouter.post('/profile', uploadImage.single('profilePhoto'), async (req, res) => {
+usersRouter.post('/profile', uploadImage.single('image'), async (req, res) => {
   try{
     const { body } = req
     const newBody = {...body}
-    newBody.image = req.file.location
+    newBody.image = req.file?.location
     const user = await User.query().findById(req.user.id)
     const patch = await user.$query().patchAndFetch(newBody)
     return res.status(201).json({ userInfo: patch})
