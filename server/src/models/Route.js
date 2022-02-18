@@ -37,7 +37,7 @@ class Route extends Model {
           to: 'users.id'
         }
       },
-      climberRoute: {
+      climberRoutes: {
         relation: Model.HasManyRelation,
         modelClass: ClimberRoute,
         join: {
