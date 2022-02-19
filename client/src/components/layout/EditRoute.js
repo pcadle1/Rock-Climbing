@@ -40,7 +40,7 @@ const EditRoute = (props) => {
         const index = props.routes.indexOf(replacedRoute)
         props.routes.splice(index, 1, body.route)
         const newRoutes = [...props.routes]
-        props.setRouteList(newRoutes)
+        props.setUserRoutes(newRoutes)
         setClicked(false)
         if(!response.ok){
           if(response.status === 422){

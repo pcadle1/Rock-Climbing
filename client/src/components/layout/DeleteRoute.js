@@ -19,7 +19,8 @@ const DeleteRoute = (props) => {
       const index = props.routes.indexOf(deletedRoute)
       props.routes.splice(index, 1)
       const newRoutes = [...props.routes]
-      props.setRouteList(newRoutes)
+      props.setUserRoutes(newRoutes)
+
     }catch(error){
       console.log(`Error in fetch: ${error}`)
     }

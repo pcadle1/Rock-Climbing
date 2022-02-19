@@ -7,9 +7,8 @@ const Profile = (props) => {
     return <Redirect to='/user-sessions/new' />
   }
   const [userRoutes, setUserRoutes] = useState([])
-  const [routeList, setRouteList] = useState([])
+  const [saved, setSaved] = useState(true)
   const { name, age, grade, details, location, image, style } = props.user
-
 
   const getUserRoutes = async () => {
     try{
@@ -19,7 +18,6 @@ const Profile = (props) => {
       }
       const body = await response.json()
       setUserRoutes(body.routes)
-      setRouteList(body.routes)
     }catch(error){
       console.log(`Error in fetch: ${error}`)
     }
@@ -30,18 +28,24 @@ const Profile = (props) => {
   }, [])
 
   
-  let userRouteList
-  
   const showCompleted = () => {
-    const completedRoutes = userRoutes.filter((route) => route.ticks > 0)
-    setRouteList(completedRoutes)
+    setSaved(false)
   }
   const showSaved = () => {
-    setRouteList(userRoutes)
+    setSaved(true)
   }
-  userRouteList = routeList.map((route, idx) => {
-    return <ProfileRoute key={idx} route={route} setRouteList={setRouteList} routes={routeList} />
-  })
+  
+  let userRouteList
+  if(saved){
+    userRouteList = userRoutes.map((route, idx) => {
+      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} />
+    })
+  }else{
+    const completedRoutes = userRoutes.filter((route) => route.details.ticks > 0)
+    userRouteList = completedRoutes.map((route, idx) => {
+      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} />
+    })
+  }
 
     return (
       <>
