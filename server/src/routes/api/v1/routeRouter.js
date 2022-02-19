@@ -28,7 +28,8 @@ routeRouter.get('/user', async (req, res) => {
     let  userRoutes = await user.$relatedQuery('routes')
     userRoutes = await Promise.all(userRoutes.map(async (route) => {
       const routeDetails = await route.$relatedQuery('climberRoutes')
-      route.details = ClimberRouteSerializer.getDetails(routeDetails[0])
+      const userRouteDetails = routeDetails.filter((route) => route.climberId === req.user.id)
+      route.details = ClimberRouteSerializer.getDetails(userRouteDetails[0])
       return route
     }))
     return res.status(200).json({ routes: userRoutes })
@@ -63,6 +64,19 @@ routeRouter.post('/', async (req, res) => {
   }
 })
 
+routeRouter.post('/:id', async (req, res) => {
+  try{
+    const route = await ClimberRoute.query().findOne({climberId: req.user.id, routeId: req.params.id})
+    const updatedRoute = await route.$query().patchAndFetch({ticks: req.body.numTicks})
+    const returnedRoute = await Route.query().findById(req.params.id)
+    returnedRoute.details = ClimberRouteSerializer.getDetails(updatedRoute)
+    return res.status(201).json({ route: returnedRoute })
+  }catch(error){
+    console.log(error)
+    return res.status(500).json({ error })
+  }
+})
+
 routeRouter.patch('/:id', uploadImage.single('image'), async (req, res) => {
   try{
     const { body } = req
@@ -82,6 +96,7 @@ routeRouter.patch('/:id', uploadImage.single('image'), async (req, res) => {
 routeRouter.delete('/:id', async (req, res) => {
   try{
     const route = await ClimberRoute.query().findOne({climberId: req.user.id, routeId: req.params.id}).delete()
+    console.log(route)
     return res.status(201).json({ route })
   }catch(error){
     return res.status(500).json({ error })
