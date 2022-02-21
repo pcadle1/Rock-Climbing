@@ -32,8 +32,13 @@ const TopBar = ({ user }) => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to='routes'>
+            <Link to='/routes'>
               Find Routes
+            </Link>
+          </li>
+          <li>
+            <Link to='/climbers'>
+              Find Climbing Partners
             </Link>
           </li>
         </ul>

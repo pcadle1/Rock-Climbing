@@ -48,7 +48,7 @@ const Profile = (props) => {
   }
 
     return (
-      <>
+      <div>
         <div className="profile-details">
           <img className="profile-pic" src={image} alt="profile-picture"></img>
           <h2 className="name">{name}</h2>
@@ -64,7 +64,7 @@ const Profile = (props) => {
           <button className="button" onClick={showSaved}>Saved Routes</button>
         </div>
         {userRouteList}
-      </>
+      </div>
     )
 }
 

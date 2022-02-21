@@ -12,6 +12,7 @@ import IndexPage from "./layout/IndexPage";
 import AuthenticatedRoute from './authentication/AuthenticatedRoute'
 import Profile from "./layout/Profile";
 import NewProfileForm from "./layout/NewProfileForm";
+import ClimbingPartners from "./layout/ClimbingPartners";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -38,6 +39,9 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <Route exact path="/profile">
             <Profile user={currentUser}/>
+        </Route>
+        <Route exact path="/climbers">
+            <ClimbingPartners />
         </Route>
         <Route exact path="/profile/new">
             <NewProfileForm user={currentUser} setCurrentUser={setCurrentUser}/>
