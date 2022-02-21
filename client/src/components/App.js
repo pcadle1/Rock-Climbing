@@ -41,7 +41,7 @@ const App = (props) => {
             <Profile user={currentUser}/>
         </Route>
         <Route exact path="/climbers">
-            <ClimbingPartners />
+            <ClimbingPartners user={currentUser}/>
         </Route>
         <Route exact path="/profile/new">
             <NewProfileForm user={currentUser} setCurrentUser={setCurrentUser}/>

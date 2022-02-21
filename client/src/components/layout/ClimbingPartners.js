@@ -11,7 +11,7 @@ const ClimbingPartners = (props) => {
         throw new Error(`${response.status} ${response.statusText}`)
       }
       const body = await response.json()
-      setPartners(body.partners)
+      setPartners(body.partners.filter(partner => partner.id !== props.user.id))
     }catch(error){
       console.log(`Error in fetch: ${error}`)
     }

@@ -6,7 +6,7 @@ const ProfileTile = (props) => {
   const addPartner = async (event) => {
     event.preventDefault()
     try{
-      const response = await fetch(`/api/v1/partners`, {
+      const response = await fetch(`/api/v1/partners/${user.id}`, {
         method: 'POST',
         headers: new Headers({
           "Content-type": "application/json"
@@ -27,7 +27,7 @@ const ProfileTile = (props) => {
           <p><strong>Preferred Climbing Style: </strong>{user.style}</p>
           <p><strong>Primary Location: </strong>{user.location}</p>
           <p><strong>More About {name}: </strong>{user.details}</p>
-          <button className="button add-friend" onClick={addPartner}>Add Friend</button>
+          <button className="button add-follow" onClick={addPartner}>Follow</button>
       </div>
   )
 }
