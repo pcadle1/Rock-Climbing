@@ -96,7 +96,6 @@ routeRouter.patch('/:id', uploadImage.single('image'), async (req, res) => {
 routeRouter.delete('/:id', async (req, res) => {
   try{
     const route = await ClimberRoute.query().findOne({climberId: req.user.id, routeId: req.params.id}).delete()
-    console.log(route)
     return res.status(201).json({ route })
   }catch(error){
     return res.status(500).json({ error })
