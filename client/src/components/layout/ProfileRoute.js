@@ -33,9 +33,16 @@ const ProfileRoute = (props) => {
     }
   }
 
+  let deleteButton, edit, tick = ''
+  if(props.buttons){
+    deleteButton = <DeleteRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+    edit = <EditRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+    tick = <TickButton route={route} markCompleted={markCompleted}/>
+  }
+
   return (
     <div className='route-tile'>
-      <DeleteRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+      {deleteButton}
       <h1>{route.name}</h1>
       <div className="tile-container">
       <div className = "review-notes">
@@ -50,8 +57,8 @@ const ProfileRoute = (props) => {
           {img}
       </div>
       </div>
-      <EditRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
-      <TickButton route={route} markCompleted={markCompleted}/>
+      {edit}
+      {tick}
     </div>
   )
 }

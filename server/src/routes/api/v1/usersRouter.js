@@ -1,5 +1,6 @@
 import express from "express";
 import { User } from "../../../models/index.js";
+import UserSerializer from "../../../serializers/UserSerializer.js";
 import uploadImage from '../../../services/uploadImage.js'
 
 const usersRouter = new express.Router();
@@ -27,8 +28,10 @@ usersRouter.post('/profile', uploadImage.single('image'), async (req, res) => {
     return res.status(201).json({ userInfo: patch})
   }catch(error){
     console.log(error)
-    return res.status(500).json({error })
+    return res.status(500).json({ error })
   }
 })
+
+
 
 export default usersRouter;

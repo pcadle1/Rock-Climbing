@@ -22,7 +22,7 @@ const ClimbingPartners = (props) => {
   }, [])
 
   const allPartners = partners.map((partner, idx) => {
-    return <ProfileTile user={partner} key={partner.id}/>
+    return <ProfileTile user={partner} key={partner.id} follow={true}/>
   })
 
   return (

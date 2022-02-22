@@ -4,9 +4,6 @@ import { Redirect } from 'react-router'
 import ProfileTile from './ProfileTile'
 
 const Profile = (props) => {
-  if(!props.user){
-    return <Redirect to='/user-sessions/new' />
-  }
   const [userRoutes, setUserRoutes] = useState([])
   const [display, setDisplay] = useState({
     completed: false,
@@ -15,7 +12,7 @@ const Profile = (props) => {
   })
   const [following, setFollowing] = useState([])
   const { name, age, grade, details, location, image, style } = props.user
-
+  
   const getUserRoutes = async () => {
     try{
       const response = await fetch(`/api/v1/routes/user`)
@@ -39,7 +36,6 @@ const Profile = (props) => {
     setDisplay({saved: false, completed: true, following: false})
   }
   const showSaved = () => {
-    // setSaved(true)
     setDisplay({saved: true, completed: false, following: false})
   }
 
@@ -63,16 +59,16 @@ const Profile = (props) => {
   let displayList
   if(display.saved){
     displayList = userRoutes.map((route, idx) => {
-      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} />
+      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} buttons={true}/>
     })
   }else if (display.completed){
     const completedRoutes = userRoutes.filter((route) => route.details.ticks > 0)
     displayList = completedRoutes.map((route, idx) => {
-      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} />
+      return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} buttons={true}/>
     })
   }else if (display.following){
     displayList = following.map((climber) => {
-      return <ProfileTile user={climber} key={climber.id}/>
+      return <ProfileTile user={climber} key={climber.id} follow={false}/>
     })
   }
 
