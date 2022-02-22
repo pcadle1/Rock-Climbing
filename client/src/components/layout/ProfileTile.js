@@ -26,7 +26,7 @@ const ProfileTile = (props) => {
           <img className="profile-pic" src={user.image} alt="profile-picture"></img>
           <Link to={`/profile/${user.id}`}>
             <h2 className="name">{user.name}</h2>
-            </Link>
+          </Link>
           <p><strong>Age: </strong>{user.age}</p>
           <p><strong>Highest Grade: </strong>{user.grade}</p>
           <p><strong>Preferred Climbing Style: </strong>{user.style}</p>

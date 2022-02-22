@@ -13,10 +13,16 @@
   width: 90%;
   border-radius: 0.5em;
   box-shadow: rgb(128, 124, 124) 0px 4px 10px;
+  .route-tile-header{
+    display: flex;
+  }
   h1{
     text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
     color: black;
-    margin: 0;
+    margin-left: 2em;
+    padding-top: 0.5em;
   }
   .button{
     border-radius: 0.5em;
@@ -47,7 +53,36 @@
   }
 }
 
-
-.checkmark{
-  margin-left: 1em;
+.profile-route-tile{
+  position: relative;
+  margin: 1em;
+  padding-left: 1em;
+  background-color: white;
+  border: 2px solid white;
+  width: 90%;
+  border-radius: 0.5em;
+  box-shadow: rgb(128, 124, 124) 0px 4px 10px;
+  .review-notes{
+    display: flex;
+    padding: 0.5em;
+    margin-right: 1em;
+    justify-content: space-between;
+    border: 1px solid #4981a9;
+    border-radius: 0.5em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  h1{
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    margin-left: 2em;
+    padding-top: 0.5em;
+  }
+  .button{
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+  }
+  .route-notes{
+    margin-left: 5em;
+  }
 }

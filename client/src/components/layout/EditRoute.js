@@ -55,7 +55,7 @@ const EditRoute = (props) => {
 
   if(clicked){
     return(
-      <>
+      <div className="edit">
         <Dropzone onDrop={onDrop} image={formInput.image}/>
         <form className="edit-form" onSubmit={save}>
           <label htmlFor="review">Review/notes</label>
@@ -79,7 +79,7 @@ const EditRoute = (props) => {
           <input type="submit" className="button"></input>
         </form>
         <button className="button" onClick={handleClick}>back</button>
-      </>
+      </div>
     )
   }
 

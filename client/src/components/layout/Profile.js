@@ -89,7 +89,9 @@ const Profile = (props) => {
           <button className="button" onClick={showSaved}>Saved Routes</button>
           <button className="button" onClick={showFollowing}>Following</button>
         </div>
-        {displayList}
+        <div className="grid-x grid margin-x">
+          {displayList}
+        </div>
       </div>
     )
 }

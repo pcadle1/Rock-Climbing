@@ -41,24 +41,28 @@ const ProfileRoute = (props) => {
   }
 
   return (
-    <div className='route-tile'>
+    <div className='profile-route-tile'>
       {deleteButton}
       <h1>{route.name}</h1>
-      <div className="tile-container">
       <div className = "review-notes">
-        <p><strong>Located At:</strong> {route.sector}</p>
-        <p><strong>Grade:</strong> {route.grade}</p>
-        <p><strong>Style:</strong> {route.type}</p>
-        <p><strong>Notes:</strong> {route.details.review}</p>
-        <p><strong>Ticks:</strong> {route.details.ticks}</p>
-        <p><strong>Rating:</strong> {route.details.rating} / 5</p>
+        <div>
+          <p><strong>Located At:</strong> {route.sector}</p>
+          <p><strong>Grade:</strong> {route.grade}</p>
+          <p><strong>Style:</strong> {route.type}</p>
+        </div>
+        <div className="route-notes">
+          <p><strong>Notes:</strong> {route.details.review}</p>
+          <p><strong>Ticks:</strong> {route.details.ticks}</p>
+          <p><strong>Rating:</strong> {route.details.rating} / 5</p>
+        </div>
+        <div className="edit-image">
+            {img}
+        </div>
       </div>
-      <div className="edit-image">
-          {img}
+      <div className="profile-route-buttons">
+        {tick}
+        {edit}
       </div>
-      </div>
-      {edit}
-      {tick}
     </div>
   )
 }
