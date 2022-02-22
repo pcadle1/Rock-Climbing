@@ -11,6 +11,7 @@ class RouteSerializer {
 
     return serializedRoutes
   }
+
 }
 
 export default RouteSerializer

@@ -2,4 +2,5 @@
 const User = require("./User.js")
 const Route = require('./Route.js')
 const ClimberRoute = require('./Route.js')
-module.exports = { User, Route, ClimberRoute };
+const Partner = require('./Partner.js')
+module.exports = { User, Route, ClimberRoute, Partner };

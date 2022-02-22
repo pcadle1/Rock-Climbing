@@ -33,25 +33,36 @@ const ProfileRoute = (props) => {
     }
   }
 
+  let deleteButton, edit, tick = ''
+  if(props.buttons){
+    deleteButton = <DeleteRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+    edit = <EditRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+    tick = <TickButton route={route} markCompleted={markCompleted}/>
+  }
+
   return (
-    <div className='route-tile'>
-      <DeleteRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
+    <div className='profile-route-tile'>
+      {deleteButton}
       <h1>{route.name}</h1>
-      <div className="tile-container">
       <div className = "review-notes">
-        <p><strong>Located At:</strong> {route.sector}</p>
-        <p><strong>Grade:</strong> {route.grade}</p>
-        <p><strong>Style:</strong> {route.type}</p>
-        <p><strong>Notes:</strong> {route.details.review}</p>
-        <p><strong>Ticks:</strong> {route.details.ticks}</p>
-        <p><strong>Rating:</strong> {route.details.rating} / 5</p>
+        <div>
+          <p><strong>Located At:</strong> {route.sector}</p>
+          <p><strong>Grade:</strong> {route.grade}</p>
+          <p><strong>Style:</strong> {route.type}</p>
+        </div>
+        <div className="route-notes">
+          <p><strong>Notes:</strong> {route.details.review}</p>
+          <p><strong>Ticks:</strong> {route.details.ticks}</p>
+          <p><strong>Rating:</strong> {route.details.rating} / 5</p>
+        </div>
+        <div className="edit-image">
+            {img}
+        </div>
       </div>
-      <div className="edit-image">
-          {img}
+      <div className="profile-route-buttons">
+        {tick}
+        {edit}
       </div>
-      </div>
-      <EditRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
-      <TickButton route={route} markCompleted={markCompleted}/>
     </div>
   )
 }

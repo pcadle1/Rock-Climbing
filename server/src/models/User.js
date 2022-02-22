@@ -44,6 +44,7 @@ class User extends uniqueFunc(Model) {
   static get relationMappings(){
     const Route = require('./Route.js')
     const ClimberRoute = require('./ClimberRoute.js')
+    const Partner = require('./Partner.js')
     return {
       routes: {
         relation: Model.ManyToManyRelation,
@@ -63,6 +64,18 @@ class User extends uniqueFunc(Model) {
         join: {
           from: 'users.id',
           to: 'climberRoutes.climberId'
+        }
+      },
+      partners: {
+        relation: Model.ManyToManyRelation,
+        modelClass: User,
+        join: {
+          from: 'users.id',
+          through: {
+            from: 'partners.user1Id',
+            to: 'partners.user2Id'
+          },
+          to: 'users.id'
         }
       }
     }

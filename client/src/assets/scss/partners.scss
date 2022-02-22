@@ -1,0 +1,49 @@
+.user-tile{
+  position: relative;
+  background-color: white;
+  height: 400px;
+  width: 400px;
+  border-radius: 0.5em;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: auto;
+  .name{
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 2em;
+    font-weight: 700;
+  }
+  img{
+    height: 70px;
+    width: 70px;
+  }
+  p{
+    margin-left: 2em;
+  }
+}
+
+.add-follow{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border-radius: 0.5em;
+}
+
+.partner-search{
+  text-align: center;
+  label{
+    font-size: 2em;
+  }
+  input{
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 0.5em;
+  }
+  .submit{
+    width: 5em;
+    margin-top: 1em;
+  }
+}

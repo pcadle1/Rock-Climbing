@@ -15,7 +15,7 @@ const IndexPage = (props) => {
 
   const getAllRoutes = async (location) => {
     try{
-      const response = await fetch(`/api/v1/routes/${location.zipcode}&${location.radius}`)
+      const response = await fetch(`/api/v1/routes/?zip=${location.zipcode}&radius=${location.radius}`)
       if (!response.ok){
         throw new Error(`${response.status} ${response.statusText}`)
       }

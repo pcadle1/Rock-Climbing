@@ -1,6 +1,5 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const RouteTile = (props) => {
   const { route } = props
@@ -29,12 +28,13 @@ const RouteTile = (props) => {
 
   return (
     <div className='route-tile'>
-      <button onClick={saveRoute} className="button">Save Route</button>
-      <FontAwesomeIcon icon={faCheck} className="checkmark"/>
-      <h1>{route.name}</h1>
-      <p>Located At: {route.meta_parent_sector}</p>
-      <p>Grade: {route.yds}</p>
-      <p>Style: {type}</p>
+      <div className='route-tile-header'>
+        <button onClick={saveRoute} className="button">Save Route</button>
+        <h1>{route.name}</h1>
+      </div>
+      <p><strong>Located At:</strong> {route.meta_parent_sector}</p>
+      <p><strong>Grade:</strong> {route.yds}</p>
+      <p><strong>Style:</strong> {type}</p>
     </div>
   )
 }
