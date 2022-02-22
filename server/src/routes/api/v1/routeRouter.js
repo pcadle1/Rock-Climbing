@@ -9,8 +9,8 @@ import ClimberRoute from '../../../models/ClimberRoute.js'
 import ClimberRouteSerializer from '../../../serializers/ClimberRouteSerializer.js'
 const routeRouter = new express.Router()
 
-routeRouter.get('/:zip&:radius', async (req, res) => {
-  const { zip, radius }= req.params
+routeRouter.get('/', async (req, res) => {
+  const { zip, radius }= req.query
   const coords = await GeoCoder.zipToLatLon(zip)
   try{
     const response = await got(`https://climb-api.openbeta.io/geocode/v1/climbs?latlng=${coords.lat},${coords.lon}&radius=${radius}`)

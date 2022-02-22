@@ -7,10 +7,18 @@ const partnerRouter = new express.Router()
 
 partnerRouter.get('/', async (req, res) => {
   try{
-    const allPartners = await User.query()
-    const serializedPartners = UserSerializer.getSummary(allPartners)
+    let partners
+    let serializedPartners
+    if(req.query.search){
+      partners = await User.query().where('location', 'ilike', `%${req.query.search}%`)
+      serializedPartners = UserSerializer.getSummary(partners)
+    }else{
+      const allPartners = await User.query().limit(10)
+      serializedPartners = UserSerializer.getSummary(allPartners)
+    }
     return res.status(200).json({ partners: serializedPartners })
   }catch(error){
+    console.log(error)
     return res.status(500).json({ error })
   }
 })
