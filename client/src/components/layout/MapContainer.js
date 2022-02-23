@@ -33,7 +33,9 @@ const MapContainer = (props) => {
               position={props.selectedArea}
               onCloseClick={() => setSelected()}
               >
-              <div>hey there</div>
+              <div>
+                <a href={`https://www.google.com/maps?saddr=My+Location&daddr=${props.selectedArea.lat},${props.selectedArea.lng}`} target="_blank">Directions</a>
+              </div>
             </InfoWindow>
   }
 

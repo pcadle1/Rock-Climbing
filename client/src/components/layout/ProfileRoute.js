@@ -46,7 +46,11 @@ const ProfileRoute = (props) => {
       <h1>{route.name}</h1>
       <div className = "review-notes">
         <div>
-          <p><strong>Located At:</strong> {route.sector}</p>
+          <p><strong>Located At:  </strong>
+            <span>
+              <a className="directions" href={`https://www.google.com/maps?saddr=My+Location&daddr=${route.lat},${route.lng}`} target="_blank">{route.sector}</a>
+            </span>
+          </p>
           <p><strong>Grade:</strong> {route.grade}</p>
           <p><strong>Style:</strong> {route.type}</p>
         </div>
@@ -63,6 +67,7 @@ const ProfileRoute = (props) => {
         {tick}
         {edit}
       </div>
+      
     </div>
   )
 }
