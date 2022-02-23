@@ -1,0 +1,14 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  input{
+    border-radius: 0.5em;
+    width: 30em;
+  }
+}
+
+.form-header{
+  text-align: center;
+}
