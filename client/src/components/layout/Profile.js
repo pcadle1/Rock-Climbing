@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ProfileRoute from './ProfileRoute'
-import { Redirect } from 'react-router'
 import ProfileTile from './ProfileTile'
+import ChartContainer from './ChartContainer'
 
 const Profile = (props) => {
   const [userRoutes, setUserRoutes] = useState([])
@@ -57,12 +57,12 @@ const Profile = (props) => {
   }
   
   let displayList
+  const completedRoutes = userRoutes.filter((route) => route.details.ticks > 0)
   if(display.saved){
     displayList = userRoutes.map((route, idx) => {
       return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} buttons={true}/>
     })
   }else if (display.completed){
-    const completedRoutes = userRoutes.filter((route) => route.details.ticks > 0)
     displayList = completedRoutes.map((route, idx) => {
       return <ProfileRoute key={idx} route={route} setUserRoutes={setUserRoutes} routes={userRoutes} buttons={true}/>
     })
@@ -83,6 +83,7 @@ const Profile = (props) => {
           <p><strong>Primary Location: </strong>{location}</p>
           <p><strong>More About {name}: </strong>{details}</p>
         </div>
+        <ChartContainer data={completedRoutes}/>
         <hr></hr>
         <div className="profile-links">
           <button className="button" onClick={showCompleted}>View Completed Routes</button>

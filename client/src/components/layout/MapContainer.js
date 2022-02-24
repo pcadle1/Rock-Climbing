@@ -10,10 +10,10 @@ const MapContainer = (props) => {
 
   const markers = props.routes.map((route, idx) => {
     return <Marker 
-    key={idx}
-    position={{lat: route.lat ,lng: route.lng}}
-    onClick={() => props.handleSelect(route)}
-    ></Marker>
+              key={idx}
+              position={{lat: route.lat ,lng: route.lng}}
+              onClick={() => props.handleSelect(route)}
+          />
   })
   
   let info
