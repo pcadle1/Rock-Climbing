@@ -5,10 +5,11 @@ import RouteTile from './RouteTile'
 const IndexPage = (props) => {
   const [routes, setRoutes] = useState([])
   const [location, setLocation] = useState({
-    zipcode: '',
-    radius: ''
+    zipcode: '03038',
+    radius: 0
   })
   const [selectedArea, setSelectedArea] = useState()
+
   const handleSelect = (route) => {
     setSelectedArea({lat: route.lat, lng: route.lng})
   }
@@ -26,11 +27,9 @@ const IndexPage = (props) => {
     }
   }
   
-  useEffect(() => {
+  useEffect( () => {
     if(props.location.state){
       getAllRoutes(props.location.state.searchLocation)
-    }else{
-      getAllRoutes(location)
     }
   }, [])
 
