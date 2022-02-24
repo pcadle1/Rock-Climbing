@@ -11,7 +11,12 @@ const ChartContainer = (props) => {
   }
 
   props.data.forEach(data => {
-    climbData[data.type]++
+    if(typeof(data.type) === 'object'){
+      const type = Object.keys(data.type)[0]
+      climbData[type]++
+    }else{
+      climbData[data.type]++
+    }
   })
   const total = Object.values(climbData).reduce((a, b) => a + b)
 
@@ -24,7 +29,6 @@ const ChartContainer = (props) => {
           color: 'black',
           font: {
             size: 16,
-            style: 'bold',
             weight: 900
           }
         }
