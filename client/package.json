@@ -44,7 +44,6 @@
     "react-chartjs-2": "^4.0.1",
     "react-dom": "~16.13",
     "react-dropzone": "^12.0.4",
-    "react-google-charts": "^4.0.0",
     "react-hot-loader": "^4.12.21",
     "react-router-dom": "5.2",
     "redbox-react": "~1.6",

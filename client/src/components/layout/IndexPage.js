@@ -53,8 +53,8 @@ const IndexPage = (props) => {
     routesList = routes.map((route, idx) => {
       return <RouteTile key={idx} route={route}/>
     })
-
   }
+
 
   return (
     <>

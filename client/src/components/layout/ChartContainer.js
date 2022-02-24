@@ -1,7 +1,6 @@
 import React from 'react'
 import { Chart } from 'chart.js/auto'
-import { Bar, Doughnut } from 'react-chartjs-2'
-
+import { Doughnut } from 'react-chartjs-2'
 
 const ChartContainer = (props) => {
   const climbData = {
@@ -18,17 +17,29 @@ const ChartContainer = (props) => {
 
   const options = {
     title: {text: "Completed routes", display: true},
-    legend: {display: false}
+    legend: {display: false},
+    plugins: {
+      legend: {
+        labels: {
+          color: 'black',
+          font: {
+            size: 16,
+            style: 'bold',
+            weight: 900
+          }
+        }
+      }
+    }
   };
 
   const data = {
-    labels: ['Boulder', 'Sport', 'Trad', 'TR', 'Total'],
+    labels: ['Boulder', 'Sport', 'Trad', 'TR'],
     datasets: [
       {
         label: 'Completed Climbs',
         backgroundColor: ['#f7464a','#46bfbd','#ffb10d','#949fb1','#4d5360'],
-        borderWidth: 2,
-        data: [...Object.values(climbData), total]
+        borderWidth: 1,
+        data: [...Object.values(climbData)]
       }
     ]
   }

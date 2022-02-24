@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ProfileTile from './ProfileTile'
 import ProfileRoute from './ProfileRoute'
+import ChartContainer from './ChartContainer'
 
 const ShowProfile = (props) => {
   const [climber, setClimber] = useState({
@@ -40,6 +41,7 @@ const ShowProfile = (props) => {
   return (
     <>
     <ProfileTile user={climber} follow={false}/>
+    <ChartContainer data={climber.routes}/>
     {profileRoutes}
     </>
   )
