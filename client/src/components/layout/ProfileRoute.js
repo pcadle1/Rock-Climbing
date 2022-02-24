@@ -38,6 +38,8 @@ const ProfileRoute = (props) => {
     deleteButton = <DeleteRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
     edit = <EditRoute route={route} setUserRoutes={props.setUserRoutes} routes={props.routes}/>
     tick = <TickButton route={route} markCompleted={markCompleted}/>
+  }else{
+    edit = <div className="other-profile-route"></div>
   }
 
   return (
