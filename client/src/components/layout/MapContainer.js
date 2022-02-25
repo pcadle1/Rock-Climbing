@@ -41,7 +41,7 @@ const MapContainer = (props) => {
 
   return(
     <>
-    <LoadScript googleMapsApiKey={REACT_APP_MAP_KEY}>
+    <LoadScript googleMapsApiKey='AIzaSyCwgIF1VZe62iObjx7AOVonEGX3cXbPjp8'>
       <GoogleMap
         mapContainerStyle={mapDimensions}
         zoom={10}

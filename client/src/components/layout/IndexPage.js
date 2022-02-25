@@ -63,8 +63,8 @@ const IndexPage = (props) => {
   return (
     <>
     <h1 className='index-header'>Find Routes</h1>
-    <div className="form-and-doughnut">
-      <form className = "route-submit-form" onSubmit={handleSubmit}>
+    <div className="form-and-doughnut grid-x">
+      <form className = "route-submit-form cell small-12 medium-6 large-6" onSubmit={handleSubmit}>
         <label htmlFor="zipcode">Zipcode</label>
         <input type="text" name="zipcode" id="zipcode" onChange={handleInputChange}></input>
         <label htmlFor="radius">Radius(km)</label>
@@ -74,10 +74,10 @@ const IndexPage = (props) => {
       { chart }
     </div>
     <div className="grid-x grid-margin-x map-info">
-      <div className="cell small-6 map-div">
+      <div className="cell large-6 map-div">
         <MapContainer handleSelect={handleSelect} selectedArea={selectedArea} routes={routes} location={location.zipcode}/>
       </div>
-      <div className='cell small-6 routes'>
+      <div className='cell small-12 medium-12 large-6 routes'>
         {routesList}
       </div>
     </div>
