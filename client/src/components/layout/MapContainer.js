@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api'
-
+import REACT_APP_MAP_KEY from '../../../local_key'
 const MapContainer = (props) => {
 
   const mapDimensions = {
@@ -41,7 +41,7 @@ const MapContainer = (props) => {
 
   return(
     <>
-    <LoadScript googleMapsApiKey="AIzaSyCX3Y2jrYAKGDgTTp4HwJH2UKuljH8jYOM">
+    <LoadScript googleMapsApiKey={REACT_APP_MAP_KEY}>
       <GoogleMap
         mapContainerStyle={mapDimensions}
         zoom={10}
