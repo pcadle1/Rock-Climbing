@@ -41,7 +41,7 @@ const MapContainer = (props) => {
 
   return(
     <>
-    <LoadScript googleMapsApiKey='AIzaSyCwgIF1VZe62iObjx7AOVonEGX3cXbPjp8'>
+    <LoadScript googleMapsApiKey='AIzaSyCX3Y2jrYAKGDgTTp4HwJH2UKuljH8jYOM'>
       <GoogleMap
         mapContainerStyle={mapDimensions}
         zoom={10}
