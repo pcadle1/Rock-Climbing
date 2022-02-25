@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api'
-import REACT_APP_MAP_KEY from '../../../local_key'
 const MapContainer = (props) => {
 
   const mapDimensions = {
