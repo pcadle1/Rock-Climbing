@@ -27,7 +27,7 @@ const LandingPage = (props) => {
   }
   return (
     <div className="landing-page">
-      <h1 className='landing-header'>Climb On!</h1>
+      <h1 className='landing-header'>Climb Buddy</h1>
       <div className="description">
         <p>A Community to Find Places to Climb and People to Climb With!</p>
         <p>Get Started by Finding Some Routes</p>
