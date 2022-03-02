@@ -8,7 +8,8 @@ const Profile = (props) => {
   const [display, setDisplay] = useState({
     completed: false,
     saved: true,
-    following: false
+    following: false,
+    messages: false
   })
   const [following, setFollowing] = useState([])
   const { name, age, grade, details, location, image, style } = props.user

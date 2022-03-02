@@ -45,6 +45,7 @@ class User extends uniqueFunc(Model) {
     const Route = require('./Route.js')
     const ClimberRoute = require('./ClimberRoute.js')
     const Partner = require('./Partner.js')
+    const Message = require('./Message.js')
     return {
       routes: {
         relation: Model.ManyToManyRelation,

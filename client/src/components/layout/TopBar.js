@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
-
 const TopBar = ({ user }) => {
+
   const unauthenticatedListItems = [
     <li key="sign-in">
       <Link to="/user-sessions/new">Sign In</Link>
@@ -15,9 +15,12 @@ const TopBar = ({ user }) => {
   ];
 
   const authenticatedListItems = [
-    <li key="profile">
-      <Link to='/profile'>My Profile</Link>
-    </li>,
+      <li key="profile">
+        <Link to='/profile'>My Profile</Link>
+      </li>,
+      <li>
+        <Link to='/messages'>Messages</Link>
+      </li>,
     <li key="sign-out">
       <SignOutButton />
     </li>,
@@ -44,7 +47,8 @@ const TopBar = ({ user }) => {
         </ul>
       </div>
       <div className="top-bar-right navbar">
-        <ul className="menu">{user ? authenticatedListItems : unauthenticatedListItems}</ul>
+        <ul className="dropdown menu" data-dropdown-menu>
+          {user ? authenticatedListItems : unauthenticatedListItems}</ul>
       </div>
     </div>
   );
