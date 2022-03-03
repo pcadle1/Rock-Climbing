@@ -7,13 +7,23 @@ class MessageSerializer{
       for(const attribute of allowedAttributes){
         serializedMessage[attribute] = message[attribute]
       }
-      const sender = await message.$relatedQuery('user')
-      serializedMessage.sender = { name: sender.name }
-      serializedMessage.sender.image = sender.image
       return serializedMessage
     }))
 
     return serializedMessages
+  }
+
+  static async getSenderSummary(messages){
+    const allowedAttributes = ['id', 'name', 'image']
+    const senders = await Promise.all(messages.map(async (message) => {
+      let serializedSender = {}
+      const sender = await message.$relatedQuery('user')
+      for(const attribute of allowedAttributes){
+        serializedSender[attribute] = sender[attribute]
+      }
+      return serializedSender
+    }))
+    return senders
   }
 }
 

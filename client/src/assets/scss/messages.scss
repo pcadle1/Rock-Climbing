@@ -1,0 +1,42 @@
+.messages-page{
+  background-color: white;
+  width: 95%;
+  height: 900px;
+  margin: 0 auto;
+  margin-top: 2em;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  h1{
+    text-align: center;
+  }
+}
+
+.sender-tile{
+  border: 1px solid #1e4a71;
+  border-radius: 0.5em;
+  display: flex;
+  margin: 0.5em;
+  margin-left: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    padding: 0.5em;
+  }
+  p{
+    padding-top: 1em;
+    padding-left: 1em;
+    font-weight: bold;
+  }
+  hr{
+    border: 2px solid #aab8c2;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
+
+.sender-tile:hover{
+  cursor: pointer;
+  background-color:#c3f5fe;
+}

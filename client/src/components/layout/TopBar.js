@@ -18,7 +18,7 @@ const TopBar = ({ user }) => {
       <li key="profile">
         <Link to='/profile'>My Profile</Link>
       </li>,
-      <li>
+      <li key="messages">
         <Link to='/messages'>Messages</Link>
       </li>,
     <li key="sign-out">
