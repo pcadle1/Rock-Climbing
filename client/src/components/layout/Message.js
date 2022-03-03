@@ -4,18 +4,6 @@ const Message = (props) => {
   const [messages, setMessages] = useState([])
   const [senders, setSenders] = useState([])
   const [selected, setSelected] = useState(null)
-  // const getMessages = async () => {
-  //   try{
-  //     const response = await fetch(`/api/v1/messages`)
-  //     if(!response.ok){
-  //       throw new Error(`${response.status} ${response.statusText}`)
-  //     }
-  //     const body = await response.json()
-  //     setMessages(body.messages)
-  //   }catch(error){
-  //     console.log(`Error in fetch: ${error}`)
-  //   }
-  // }
 
   const getMessageSenders = async () => {
     try{
@@ -46,10 +34,9 @@ const Message = (props) => {
   useEffect(() => {
     getMessageSenders()
   }, [])
-
-
+  
   const senderList = senders.map((sender, idx) => {
-    return <SenderTile key={idx} sender={sender} setSelected={setSelected} getMessages={getMessages}/>
+    return <SenderTile key={idx} sender={sender} getMessages={getMessages} selected={selected} setSelected={setSelected}/>
   })
   const messageList = messages.map((message) => {
     return <p>{message.messageText}</p>
