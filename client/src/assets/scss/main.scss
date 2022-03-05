@@ -1,12 +1,14 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@include foundation-dropdown-menu;
 @import './landing-page.scss';
 @import './route-index.scss';
 @import './profile.scss';
 @import './navbar.scss';
 @import './partners.scss';
 @import './forms.scss';
+@import './messages.scss';
 *,
 *::before,
 *::after {

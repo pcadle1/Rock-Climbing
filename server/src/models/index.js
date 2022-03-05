@@ -3,4 +3,5 @@ const User = require("./User.js")
 const Route = require('./Route.js')
 const ClimberRoute = require('./Route.js')
 const Partner = require('./Partner.js')
-module.exports = { User, Route, ClimberRoute, Partner };
+const Message = require('./Message.js')
+module.exports = { User, Route, ClimberRoute, Partner, Message };
