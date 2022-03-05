@@ -1,7 +1,7 @@
 .messages-page{
   background-color: white;
   width: 95%;
-  height: 900px;
+  height: 70%;
   margin: 0 auto;
   margin-top: 2em;
   border-radius: 0.5em;
@@ -49,7 +49,8 @@
   border: 1px solid #1e4a71;
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+  position: relative;
+  height: 800px;
 }
 .text-box{
   display:flex;
@@ -77,6 +78,10 @@
 
 .message-form{
   text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 100%;
   .message{
     border-radius:0.5em;
     border: 1px solid #1e4a71;

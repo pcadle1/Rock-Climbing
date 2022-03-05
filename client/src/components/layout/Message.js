@@ -58,10 +58,12 @@ const Message = (props) => {
           {senderList}
         </div>
         {selected ? 
-        <div className="messages cell small-12 medium-8">
-          {messageList}
-          <MessageForm recipient={selected} messages={messages} setMessages={setMessages}/>
-        </div> : '' }
+          <div className="messages cell small-12 medium-8">
+            {messageList}
+            <div>
+              <MessageForm recipient={selected} messages={messages} setMessages={setMessages}/>
+            </div>
+          </div> : '' }
       </div>
     </div>
   )
