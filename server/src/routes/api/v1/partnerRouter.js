@@ -12,6 +12,9 @@ partnerRouter.get('/', async (req, res) => {
     if(req.query.search){
       partners = await User.query().where('location', 'ilike', `%${req.query.search}%`)
       serializedPartners = UserSerializer.getSummary(partners)
+    }else if (req.query.name){
+      partners = await User.query().where('name', 'ilike', `%${req.query.name}%`).limit(20)
+      serializedPartners = UserSerializer.getSummary(partners)
     }else{
       const allPartners = await User.query().limit(10)
       serializedPartners = UserSerializer.getSummary(allPartners)

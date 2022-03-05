@@ -28,6 +28,14 @@ class Message extends Model{
           from: 'messages.senderId',
           to: 'users.id'
         }
+      },
+      receiver: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: User,
+        join: {
+          from: 'messages.receiverId',
+          to: 'users.id'
+        }
       }
     }
   }

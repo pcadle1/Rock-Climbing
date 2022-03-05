@@ -34,6 +34,18 @@ class MessageSerializer{
     }))
     return senders
   }
+  static async getReceiverSummary(messages){
+    const allowedAttributes = ['id', 'name', 'image']
+    const senders = await Promise.all(messages.map(async (message) => {
+      let serializedReceiver = {}
+      const sender = await message.$relatedQuery('receiver')
+      for(const attribute of allowedAttributes){
+        serializedReceiver[attribute] = sender[attribute]
+      }
+      return serializedReceiver
+    }))
+    return senders
+  }
 }
 
 export default MessageSerializer

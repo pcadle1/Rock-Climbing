@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SenderTile from './SenderTile'
 import MessageTile from './MessageTile'
 import MessageForm from './MessageForm'
+import NewConversation from './NewConversation'
 
 const Message = (props) => {
   const [messages, setMessages] = useState([])
@@ -50,6 +51,10 @@ const Message = (props) => {
       <hr></hr>
       <div className="grid-x">
         <div className="cell small-12 medium-4">
+          <h2 className="conversation-search">Add a new conversation</h2>
+          <div className="conversation-search-bar">
+            <NewConversation  setSenders={setSenders} senders={senders}/>
+          </div>
           {senderList}
         </div>
         {selected ? 
