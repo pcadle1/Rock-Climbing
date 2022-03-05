@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import SenderTile from './SenderTile'
+import MessageTile from './MessageTile'
+import MessageForm from './MessageForm'
+
 const Message = (props) => {
   const [messages, setMessages] = useState([])
   const [senders, setSenders] = useState([])
@@ -38,20 +41,22 @@ const Message = (props) => {
   const senderList = senders.map((sender, idx) => {
     return <SenderTile key={idx} sender={sender} getMessages={getMessages} selected={selected} setSelected={setSelected}/>
   })
-  const messageList = messages.map((message) => {
-    return <p>{message.messageText}</p>
+  const messageList = messages.map((message, idx) => {
+    return <MessageTile key={idx} message={message} selected={selected} user={props.user}/>
   })
   return (
     <div className="messages-page">
       <h1>Messages</h1>
       <hr></hr>
       <div className="grid-x">
-        <div className="cell small-4">
+        <div className="cell small-12 medium-4">
           {senderList}
         </div>
-        <div className="cell small-8">
+        {selected ? 
+        <div className="messages cell small-12 medium-8">
           {messageList}
-        </div>
+          <MessageForm recipient={selected} messages={messages} setMessages={setMessages}/>
+        </div> : '' }
       </div>
     </div>
   )

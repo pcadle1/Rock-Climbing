@@ -6,6 +6,7 @@
   margin-top: 2em;
   border-radius: 0.5em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 1em;
   h1{
     text-align: center;
   }
@@ -16,7 +17,6 @@
   border-radius: 0.5em;
   display: flex;
   margin: 0.5em;
-  margin-left: 1em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   img{
@@ -43,4 +43,54 @@
 
 .selected{
   background-color:#c3f5fe;
+}
+
+.messages{
+  border: 1px solid #1e4a71;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.text-box{
+  display:flex;
+  justify-content: flex-end;
+}
+.message-box{
+  border: 1px solid #1e4a71;
+  border-radius: 0.5em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0.5em;
+  width: 40%;
+  padding: 0.5em;
+  text-align: right;
+}
+
+.sent{
+  background-color: #c3f5fe;
+  width: 40%;
+  text-align: left;
+}
+
+.left{
+  justify-content: flex-start;
+}
+
+.message-form{
+  text-align: right;
+  .message{
+    border-radius:0.5em;
+    border: 1px solid #1e4a71;
+    height: 2em;
+    width: 50%;
+    margin-bottom: 2em;
+    margin-right: 1em;
+    margin-top: 2em;
+  }
+  .submit-message{
+    margin-right: 1em;
+    height: 1.5em;
+  }
+  .submit-message:hover{
+    cursor: pointer;
+  }
 }
