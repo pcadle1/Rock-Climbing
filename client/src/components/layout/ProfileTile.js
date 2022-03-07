@@ -33,7 +33,6 @@ const ProfileTile = (props) => {
           <p><strong>Primary Location: </strong>{user.location}</p>
           <p><strong>More About {name}: </strong>{user.details}</p>
           {followButton}
-          <button type="button" className="button">Message</button>
       </div>
   )
 }
